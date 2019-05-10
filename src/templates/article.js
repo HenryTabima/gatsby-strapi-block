@@ -13,7 +13,11 @@ const ArticleTemplate = ({ data }) => (
         {data.strapiArticle.author.username}
       </Link>
     </p>
-    {data.image && (<Img fluid={data.image.localFile.childImageSharp.fluid}/>)}
+    {
+      data.image &&
+      data.image.localFile &&
+      (<Img fluid={data.image.localFile.childImageSharp.fluid}/>)
+    }
 
     <Reactmarkdown
       source={data.strapiArticle.content}
